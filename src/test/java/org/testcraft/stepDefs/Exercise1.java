@@ -34,6 +34,9 @@ public class Exercise1 {
     public void i_enter_journey_details_from_to(String arg1, String arg2) throws Throwable {
         driver.findElement(By.id("originStation")).sendKeys(arg1, Keys.TAB);
         driver.findElement(By.id("destinationStation")).sendKeys(arg2, Keys.TAB);
+        driver.findElement(By.id("journey-type-return")).click();//added for exercise 3
+        driver.findElement(By.xpath("//*[@id=\"extendedSearchForm\"]/div[3]/div[1]/div/div[1]/button[2]")).click();//added for exercise 3
+        driver.findElement(By.xpath("//*[@id=\"extendedSearchForm\"]/div[3]/div[2]/div/div[1]/button[2]")).click();//added for exercise 3
     }
 
     @When("^click \"([^\"]*)\"$")
@@ -46,6 +49,6 @@ public class Exercise1 {
     @Then("^I am given the times and prices of tickets$")
     public void i_am_given_the_times_and_prices_of_tickets() throws Throwable {
         driver.findElement(By.cssSelector(".matrix-table.matrix-out")).isDisplayed(); //added for exercise 2
-        //if Assert.fail("this fail");
+
     }
 }

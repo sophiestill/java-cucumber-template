@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+
 public class HomePage extends BasePage {
 
 
@@ -38,7 +41,7 @@ public class HomePage extends BasePage {
         return result;
     }
 
-    public WebElement removeGlyphicon(){
+    public WebElement removeCookiesGlyphicon(){
         WebElement result = driver.findElement(By.cssSelector(".glyphicon-remove.is-alone"));
         return result;
     }
@@ -50,6 +53,17 @@ public class HomePage extends BasePage {
         String title = driver.getTitle();
         Assert.assertTrue("'Trainline' must be in the title", title.contains("Trainline"));
     }
+
+    public void selectCalendarOutDate(int daysAhead){
+        driver.findElement(By.id("outDate")).click();
+        Calendar cal = Calendar.getInstance();
+        LocalDate today = LocalDate.now();
+        LocalDate futuredate = today.plusDays(daysAhead); //now have date to look for in calendar
+        //while futuredate
+
+        //while the month is not on the screen, click next
+    }
+
 
 }
 
